@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 24 8% 11%;
 
-    --primary: 200 81% 17%; /* teal #08364D */
+    --primary: 148 37% 18%; /* forest #1B3A2A */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 148 41% 33%; /* sage #2D8A5A */
@@ -28,9 +28,9 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 165 32% 17% / 0.10;
-    --input: 165 32% 17% / 0.10;
-    --ring: 165 32% 17%;
+    --border: 148 37% 18% / 0.10;
+    --input: 148 37% 18% / 0.10;
+    --ring: 148 37% 18%;
 
     --radius: 14px;
 
@@ -41,12 +41,12 @@
     --faint: 24 8% 61%; /* #A89E94 */
     --stone: 40 33% 93%; /* #F5F0E8 */
 
-    --sh-sm: 0 4px 18px rgba(30,58,53,0.06);
-    --sh-md: 0 14px 44px rgba(30,58,53,0.08);
-    --sh-lg: 0 28px 72px rgba(30,58,53,0.10);
+    --sh-sm: 0 4px 18px rgba(27,58,42,0.06);
+    --sh-md: 0 14px 44px rgba(27,58,42,0.08);
+    --sh-lg: 0 28px 72px rgba(27,58,42,0.10);
 
     --f-display: 'Lora', Georgia, serif;
-    --f-ui: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --f-ui: 'Inter', system-ui, sans-serif;
   }
 }
 

@@ -50,7 +50,7 @@ const Investors = () => {
 
       {/* Hero */}
       <section className="relative z-[1] max-w-[860px] mx-auto px-8 pt-[80px] pb-16 text-center max-md:px-5 max-md:pt-14">
-        <div className="inline-flex items-center gap-2 bg-[hsl(var(--dew))] text-secondary rounded-full px-4 py-2 font-[var(--f-ui)] text-xs font-semibold uppercase tracking-[0.8px] mb-8">
+        <div className="inline-flex items-center gap-2 bg-[hsl(var(--dew))] text-secondary rounded-full px-4 py-2 font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] mb-8">
           <span className="w-[7px] h-[7px] rounded-full bg-secondary" />
           Investor Overview — Confidential
         </div>
@@ -85,7 +85,7 @@ const Investors = () => {
       {/* The Ecosystem */}
       <section className="relative z-[1] max-w-[980px] mx-auto px-8 pb-20 max-md:px-5">
         <div className="text-center mb-10">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-3">The solution</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">The solution</div>
           <h2 className="font-[var(--f-display)] text-[clamp(26px,3.2vw,40px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-3">
             Three pillars. One ecosystem.
           </h2>
@@ -119,11 +119,11 @@ const Investors = () => {
             },
           ].map((p) => (
             <div key={p.label} className="bg-card border border-border rounded-[18px] p-6 flex flex-col">
-              <div className={`inline-flex items-center gap-[6px] self-start px-3 py-[5px] rounded-full font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[0.8px] mb-4 ${p.tagColor}`}>
+              <div className={`inline-flex items-center gap-[6px] self-start px-3 py-[5px] rounded-full font-[var(--f-ui)] text-[12px] font-medium tracking-[0.3px] mb-4 ${p.tagColor}`}>
                 <span className="w-[5px] h-[5px] rounded-full bg-current" />
                 {p.tag}
               </div>
-              <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[1.5px] text-[hsl(var(--faint))] mb-1">{p.label}</div>
+              <div className="font-[var(--f-ui)] text-[12px] font-medium tracking-[0.3px] text-[hsl(var(--faint))] mb-1">{p.label}</div>
               <h3 className="font-[var(--f-display)] text-[22px] font-medium text-primary mb-4">{p.name}</h3>
               <ul className="flex flex-col gap-2 mt-auto">
                 {p.points.map((pt) => (
@@ -141,7 +141,7 @@ const Investors = () => {
       {/* Market */}
       <section className="relative z-[1] max-w-[980px] mx-auto px-8 pb-20 max-md:px-5">
         <div className="text-center mb-10">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-accent mb-3">Market opportunity</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-accent mb-3">Market opportunity</div>
           <h2 className="font-[var(--f-display)] text-[clamp(26px,3.2vw,40px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary">
             Three massive, growing markets — one integrated play.
           </h2>
@@ -164,7 +164,7 @@ const Investors = () => {
       {/* Traction */}
       <section className="relative z-[1] max-w-[720px] mx-auto px-8 pb-20 text-center max-md:px-5">
         <div className="bg-primary rounded-[20px] p-10 md:p-14 shadow-[var(--sh-lg)]">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-primary-foreground/60 mb-4">Traction</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-primary-foreground/60 mb-4">Traction</div>
           <h2 className="font-[var(--f-display)] text-[clamp(22px,2.8vw,32px)] font-medium leading-[1.15] text-primary-foreground mb-8">
             11+ years of operating proof. Not a concept.
           </h2>
@@ -187,7 +187,7 @@ const Investors = () => {
       {/* Investment thesis */}
       <section className="relative z-[1] max-w-[980px] mx-auto px-8 pb-20 max-md:px-5">
         <div className="text-center mb-10">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-3">The thesis</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">The thesis</div>
           <h2 className="font-[var(--f-display)] text-[clamp(26px,3.2vw,40px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary">
             Why now. Why GereOM.
           </h2>
@@ -222,7 +222,7 @@ const Investors = () => {
       {/* Use of proceeds */}
       <section className="relative z-[1] max-w-[720px] mx-auto px-8 pb-20 max-md:px-5">
         <div className="text-center mb-8">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-accent mb-3">Use of proceeds</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-accent mb-3">Use of proceeds</div>
           <h2 className="font-[var(--f-display)] text-[clamp(24px,3vw,36px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary">
             Capital deployed with purpose.
           </h2>
@@ -251,7 +251,7 @@ const Investors = () => {
         <div className="bg-card border border-border rounded-[24px] p-10 shadow-[var(--sh-md)] text-center max-md:p-8">
           {!submitted ? (
             <>
-              <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-4">Investor Deck</div>
+              <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-4">Investor Deck</div>
               <h2 className="font-[var(--f-display)] text-[clamp(22px,3vw,32px)] font-medium tracking-[-0.3px] leading-[1.15] text-primary mb-3">
                 Request the full deck
               </h2>

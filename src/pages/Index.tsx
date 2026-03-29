@@ -83,7 +83,7 @@ const Index = () => {
 
       {/* Hero — Emotion-first, large type for 55+ readability */}
       <section className="relative z-[1] max-w-[980px] mx-auto px-8 pt-[80px] pb-12 text-center max-md:px-5 max-md:pt-14 max-md:pb-10">
-        <div className="animate-up inline-flex items-center gap-2 bg-[hsl(var(--dew))] text-secondary rounded-full px-4 py-2 font-[var(--f-ui)] text-xs font-semibold uppercase tracking-[0.8px] mb-8">
+        <div className="animate-up inline-flex items-center gap-2 bg-[hsl(var(--dew))] text-secondary rounded-full px-4 py-2 font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] mb-8">
           <span className="w-[7px] h-[7px] rounded-full bg-secondary pulse-dot" />
           Coming soon
         </div>
@@ -165,7 +165,7 @@ const Index = () => {
       {/* Problem — Empathy section */}
       <section id="problem" className="relative z-[1] max-w-[980px] mx-auto px-8 pb-24 max-md:px-5 max-md:pb-16 scroll-mt-24">
         <div className="max-w-[720px] mx-auto text-center mb-12">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-3">The reality</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">The reality</div>
           <h2 className="font-[var(--f-display)] text-[clamp(28px,3.5vw,44px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-5">
             A calmer, clearer way<br className="max-md:hidden" /> to think about aging
           </h2>
@@ -216,7 +216,7 @@ const Index = () => {
 
       {/* Transition — Our approach */}
       <section className="relative z-[1] max-w-[720px] mx-auto px-8 pb-8 text-center max-md:px-5">
-        <div className="bg-[hsl(165,40%,13%)] rounded-[20px] p-10 md:p-14 shadow-[var(--sh-lg)]">
+        <div className="bg-[hsl(148,40%,13%)] rounded-[20px] p-10 md:p-14 shadow-[var(--sh-lg)]">
           <h2 className="font-[var(--f-display)] text-[clamp(24px,3vw,36px)] font-medium tracking-[-0.3px] leading-[1.15] text-primary-foreground mb-4">
             We believe aging is a chapter to be <em>shared</em> — not managed.
           </h2>
@@ -229,7 +229,7 @@ const Index = () => {
       {/* What's Inside — Products */}
       <section id="whats-inside" className="relative z-[1] max-w-[980px] mx-auto px-8 py-24 max-md:px-5 max-md:py-16 scroll-mt-24">
         <div className="text-center mb-14">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-3">What's inside</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">What's inside</div>
           <h2 className="font-[var(--f-display)] text-[clamp(28px,3.5vw,44px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-4">
             The Masterclass of Conscious Aging
           </h2>
@@ -272,7 +272,7 @@ const Index = () => {
             },
           ].map((product) => (
             <div key={product.type} className="bg-card border border-border rounded-[18px] p-6 pb-7 transition-all hover:-translate-y-1 hover:shadow-[var(--sh-md)] flex flex-col">
-              <div className={`inline-flex items-center gap-[6px] self-start px-3 py-[5px] rounded-full font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[0.8px] mb-5 ${product.tagColor}`}>
+              <div className={`inline-flex items-center gap-[6px] self-start px-3 py-[5px] rounded-full font-[var(--f-ui)] text-[12px] font-medium tracking-[0.3px] mb-5 ${product.tagColor}`}>
                 <span className="w-[5px] h-[5px] rounded-full bg-current" />
                 {product.type}
               </div>
@@ -302,7 +302,7 @@ const Index = () => {
       {/* Audience — Who it's for */}
       <section className="relative z-[1] max-w-[980px] mx-auto px-8 pb-24 max-md:px-5 max-md:pb-16">
         <div className="text-center mb-12">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-3">Who it's for</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">Who it's for</div>
           <h2 className="font-[var(--f-display)] text-[clamp(28px,3.5vw,44px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-4">
             Built for families and professionals alike
           </h2>
@@ -322,7 +322,7 @@ const Index = () => {
             <p className="font-[var(--f-display)] text-[16px] font-normal leading-[1.75] mb-6 text-muted-foreground">
               Adults 35+ balancing work and family while navigating a parent's changing needs. You need clarity, not more confusion.
             </p>
-            <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[1.2px] text-[hsl(var(--faint))] mb-3">What you'll get</div>
+            <div className="font-[var(--f-ui)] text-[12px] font-medium tracking-[0.3px] text-[hsl(var(--faint))] mb-3">What you'll get</div>
             <ul className="flex flex-col gap-[10px] list-none">
               {[
                 "Know what to assess before a crisis hits",
@@ -352,7 +352,7 @@ const Index = () => {
             <p className="font-[var(--f-display)] text-[16px] font-normal leading-[1.75] mb-6 text-primary-foreground/70">
               Caregivers, educators, and aging specialists who want consistent tools, structured training, and stronger trust with families.
             </p>
-            <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[1.2px] text-primary-foreground/50 mb-3">What you'll get</div>
+            <div className="font-[var(--f-ui)] text-[12px] font-medium tracking-[0.3px] text-primary-foreground/50 mb-3">What you'll get</div>
             <ul className="flex flex-col gap-[10px] list-none">
               {[
                 "Structured Trainings",
@@ -375,7 +375,7 @@ const Index = () => {
       {/* Our approach — Values */}
       <section className="relative z-[1] max-w-[980px] mx-auto px-8 pb-24 max-md:px-5 max-md:pb-16">
         <div className="text-center mb-12">
-          <div className="font-[var(--f-ui)] text-[11px] font-semibold uppercase tracking-[2px] text-secondary mb-3">Our approach</div>
+          <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">Our approach</div>
           <h2 className="font-[var(--f-display)] text-[clamp(28px,3.5vw,44px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-4">
             Care that protects independence
           </h2>
