@@ -80,7 +80,7 @@ export default function Admin() {
         setAuthed(false);
         sessionStorage.removeItem("admin_secret");
       } else {
-        setFetchError("Could not reach the API. Make sure VITE_API_URL is set.");
+        setFetchError(`Could not reach the API. Trying: "${API_URL}/api/signups" — check VITE_API_URL in Railway variables.`);
       }
     } finally {
       setLoading(false);
