@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const gereomLogo = "/gereom-logo-new.png";
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 const Investors = () => {
   const navigate = useNavigate();
@@ -17,7 +18,15 @@ const Investors = () => {
     }
     setError("");
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
+    try {
+      await fetch(`${API_URL}/api/investor-inquiry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch {
+      // Non-blocking — still allow download even if API is unreachable
+    }
     setLoading(false);
     setSubmitted(true);
     const link = document.createElement("a");
