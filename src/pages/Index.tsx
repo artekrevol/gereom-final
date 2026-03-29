@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import LeadQuestionnaire from "@/components/LeadQuestionnaire";
-import gereomLogo from "@/assets/gereom-logo.svg";
-import gereomLogoWhite from "@/assets/gereom-logo-white.svg";
+const gereomLogo = "/gereom-logo-new.png";
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-[11px] h-[11px]">
@@ -22,10 +21,10 @@ const Index = () => {
       <div className="blob blob-2" />
 
       {/* Nav */}
-      <nav className="sticky top-0 z-[100] bg-[#08364D] border-b border-white/10">
+      <nav className="sticky top-0 z-[100] bg-primary border-b border-white/10">
         <div className="flex items-center justify-between px-[52px] py-[18px] max-md:px-5 max-md:py-[14px]">
           <div className="flex items-center gap-3">
-            <img src={gereomLogo} alt="GereOM" className="h-10 w-auto" />
+            <img src={gereomLogo} alt="GereOM" className="h-14 w-auto" />
           </div>
           <div className="flex items-center gap-3">
             <button

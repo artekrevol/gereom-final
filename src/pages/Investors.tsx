@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import gereomLogo from "@/assets/gereom-logo.svg";
+const gereomLogo = "/gereom-logo-new.png";
 
 const Investors = () => {
   const navigate = useNavigate();
@@ -31,9 +31,9 @@ const Investors = () => {
   return (
     <>
       {/* Nav */}
-      <nav className="sticky top-0 z-[100] flex items-center justify-between px-[52px] py-[18px] bg-[#08364D] border-b border-white/10 max-md:px-5 max-md:py-[14px]">
+      <nav className="sticky top-0 z-[100] flex items-center justify-between px-[52px] py-[18px] bg-primary border-b border-white/10 max-md:px-5 max-md:py-[14px]">
         <button onClick={() => navigate("/")} className="flex items-center gap-3 cursor-pointer bg-transparent border-none p-0">
-          <img src={gereomLogo} alt="GereOM" className="h-10 w-auto" />
+          <img src={gereomLogo} alt="GereOM" className="h-14 w-auto" />
         </button>
         <div className="flex items-center gap-3">
           <button
