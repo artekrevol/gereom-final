@@ -24,9 +24,9 @@ app.use(express.json());
 // Health check
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 
-// POST /api/subscribe — homepage email capture
+// POST /api/subscribe — waitlist signup
 app.post("/api/subscribe", async (req, res) => {
-  const { email } = req.body;
+  const { first_name, last_name, email, phone } = req.body;
 
   if (!email || !email.includes("@")) {
     return res.status(400).json({ error: "Valid email required." });
@@ -34,8 +34,16 @@ app.post("/api/subscribe", async (req, res) => {
 
   try {
     await pool.query(
-      "INSERT INTO email_signups (email, source) VALUES ($1, $2) ON CONFLICT (email) DO NOTHING",
-      [email.toLowerCase().trim(), "homepage"]
+      `INSERT INTO email_signups (first_name, last_name, email, phone, source)
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (email) DO UPDATE SET first_name = $1, last_name = $2, phone = $4`,
+      [
+        first_name?.trim() || null,
+        last_name?.trim() || null,
+        email.toLowerCase().trim(),
+        phone?.trim() || null,
+        "homepage",
+      ]
     );
     res.json({ success: true });
   } catch (err) {
@@ -46,7 +54,7 @@ app.post("/api/subscribe", async (req, res) => {
 
 // POST /api/investor-inquiry — investor page form
 app.post("/api/investor-inquiry", async (req, res) => {
-  const { name, email, role } = req.body;
+  const { name, email, phone, role } = req.body;
 
   if (!name || !email || !email.includes("@")) {
     return res.status(400).json({ error: "Name and valid email required." });
@@ -54,8 +62,8 @@ app.post("/api/investor-inquiry", async (req, res) => {
 
   try {
     await pool.query(
-      "INSERT INTO investor_inquiries (name, email, role) VALUES ($1, $2, $3)",
-      [name.trim(), email.toLowerCase().trim(), role?.trim() || null]
+      "INSERT INTO investor_inquiries (name, email, phone, role) VALUES ($1, $2, $3, $4)",
+      [name.trim(), email.toLowerCase().trim(), phone?.trim() || null, role?.trim() || null]
     );
     res.json({ success: true });
   } catch (err) {

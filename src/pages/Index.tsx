@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import LeadQuestionnaire from "@/components/LeadQuestionnaire";
-const gereomLogo = "/gereom-logo-new.png";
+const gereomLogo = "/gereom-logo-white.png";
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-[11px] h-[11px]">
@@ -10,31 +10,9 @@ const CheckIcon = () => (
   </svg>
 );
 
-const API_URL = import.meta.env.VITE_API_URL || "";
-
 const Index = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) return;
-    setSubscribeStatus("loading");
-    try {
-      const res = await fetch(`${API_URL}/api/subscribe`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      if (!res.ok) throw new Error();
-      setSubscribeStatus("success");
-      setEmail("");
-    } catch {
-      setSubscribeStatus("error");
-    }
-  };
 
   return (
     <>
@@ -45,7 +23,7 @@ const Index = () => {
       <nav className="sticky top-0 z-[100] bg-primary border-b border-white/10">
         <div className="flex items-center justify-between px-[52px] py-[18px] max-md:px-5 max-md:py-[14px]">
           <div className="flex items-center gap-3">
-            <img src={gereomLogo} alt="GereOM" className="h-14 w-auto" />
+            <img src={gereomLogo} alt="GereOM" className="h-20 w-auto" />
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -458,39 +436,15 @@ const Index = () => {
           <p className="font-[var(--f-display)] text-[17px] font-normal text-muted-foreground leading-[1.75] mb-8 max-w-[460px] mx-auto">
             Join the waitlist for early access to the first release of tools, guides, and learning resources.
           </p>
-          {subscribeStatus === "success" ? (
-            <div className="py-5 font-[var(--f-ui)] text-[15px] text-secondary font-medium">
-              You're on the list. We'll be in touch before launch.
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="grid grid-cols-[1fr_auto] gap-[10px] bg-[hsl(var(--stone))] border border-border rounded-[14px] p-2 shadow-[var(--sh-sm)] max-md:grid-cols-1">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                required
-                className="w-full border-none outline-none bg-transparent px-4 py-[15px] font-[var(--f-ui)] text-[15px] text-foreground placeholder:text-[hsl(var(--faint))]"
-              />
-              <button
-                type="submit"
-                disabled={subscribeStatus === "loading"}
-                className="bg-primary text-primary-foreground border-none px-5 py-[14px] rounded-[10px] font-[var(--f-ui)] text-sm font-semibold cursor-pointer whitespace-nowrap max-md:w-full transition-all hover:opacity-90 disabled:opacity-60"
-              >
-                {subscribeStatus === "loading" ? "Joining…" : "Join the waitlist"}
-              </button>
-            </form>
-          )}
-          {subscribeStatus === "error" && (
-            <div className="mt-3 font-[var(--f-ui)] text-[13px] text-destructive">
-              Something went wrong. Please try again.
-            </div>
-          )}
-          {subscribeStatus !== "success" && (
-            <div className="mt-4 font-[var(--f-ui)] text-[13px] font-normal text-[hsl(var(--faint))]">
-              Early access invites will be sent before public launch.
-            </div>
-          )}
+          <button
+            onClick={() => navigate("/signup")}
+            className="bg-primary text-primary-foreground border-none px-8 py-[15px] rounded-[10px] font-[var(--f-ui)] text-[15px] font-semibold cursor-pointer transition-all hover:opacity-90 hover:-translate-y-px"
+          >
+            Join the waitlist →
+          </button>
+          <div className="mt-4 font-[var(--f-ui)] text-[13px] font-normal text-[hsl(var(--faint))]">
+            Early access invites will be sent before public launch.
+          </div>
         </div>
       </section>
 

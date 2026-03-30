@@ -4,7 +4,10 @@ const API_URL = import.meta.env.VITE_API_URL || "";
 
 type EmailSignup = {
   id: number;
+  first_name: string;
+  last_name: string;
   email: string;
+  phone: string;
   source: string;
   created_at: string;
 };
@@ -13,6 +16,7 @@ type InvestorInquiry = {
   id: number;
   name: string;
   email: string;
+  phone: string;
   role: string;
   created_at: string;
 };
@@ -202,8 +206,10 @@ export default function Admin() {
                 <thead>
                   <tr className="border-b border-border bg-[hsl(var(--stone))]">
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">#</th>
+                    <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">First Name</th>
+                    <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Last Name</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Email</th>
-                    <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Source</th>
+                    <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Phone</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Date</th>
                   </tr>
                 </thead>
@@ -214,8 +220,10 @@ export default function Admin() {
                     signups.map((row, i) => (
                       <tr key={row.id} className={i % 2 === 0 ? "" : "bg-[hsl(var(--stone))/40]"}>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.id}</td>
+                        <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground font-medium">{row.first_name || "—"}</td>
+                        <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground">{row.last_name || "—"}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground">{row.email}</td>
-                        <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.source}</td>
+                        <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.phone || "—"}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{formatDate(row.created_at)}</td>
                       </tr>
                     ))
@@ -231,6 +239,7 @@ export default function Admin() {
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">#</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Name</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Email</th>
+                    <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Phone</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Role</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Date</th>
                   </tr>
@@ -244,6 +253,7 @@ export default function Admin() {
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.id}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground font-medium">{row.name}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground">{row.email}</td>
+                        <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.phone || "—"}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.role || "—"}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{formatDate(row.created_at)}</td>
                       </tr>

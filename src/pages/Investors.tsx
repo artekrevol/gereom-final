@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const gereomLogo = "/gereom-logo-new.png";
+const gereomLogo = "/gereom-logo-white.png";
 const API_URL = import.meta.env.VITE_API_URL || "";
 
 const Investors = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", email: "", role: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", role: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -42,7 +42,7 @@ const Investors = () => {
       {/* Nav */}
       <nav className="sticky top-0 z-[100] flex items-center justify-between px-[52px] py-[18px] bg-primary border-b border-white/10 max-md:px-5 max-md:py-[14px]">
         <button onClick={() => navigate("/")} className="flex items-center gap-3 cursor-pointer bg-transparent border-none p-0">
-          <img src={gereomLogo} alt="GereOM" className="h-14 w-auto" />
+          <img src={gereomLogo} alt="GereOM" className="h-20 w-auto" />
         </button>
         <div className="flex items-center gap-3">
           <button
@@ -280,6 +280,13 @@ const Investors = () => {
                   placeholder="Work email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full border border-border rounded-[10px] bg-[hsl(var(--stone))] px-4 py-[14px] font-[var(--f-ui)] text-[15px] text-foreground placeholder:text-[hsl(var(--faint))] outline-none focus:ring-2 focus:ring-primary/20"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full border border-border rounded-[10px] bg-[hsl(var(--stone))] px-4 py-[14px] font-[var(--f-ui)] text-[15px] text-foreground placeholder:text-[hsl(var(--faint))] outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 <input

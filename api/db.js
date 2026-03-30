@@ -9,7 +9,10 @@ async function migrate() {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS email_signups (
       id SERIAL PRIMARY KEY,
+      first_name TEXT,
+      last_name TEXT,
       email TEXT NOT NULL UNIQUE,
+      phone TEXT,
       source TEXT DEFAULT 'homepage',
       created_at TIMESTAMPTZ DEFAULT NOW()
     );
@@ -18,10 +21,20 @@ async function migrate() {
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
+      phone TEXT,
       role TEXT,
       created_at TIMESTAMPTZ DEFAULT NOW()
     );
   `);
+
+  // Add new columns to existing tables (safe no-op if already present)
+  await pool.query(`
+    ALTER TABLE email_signups ADD COLUMN IF NOT EXISTS first_name TEXT;
+    ALTER TABLE email_signups ADD COLUMN IF NOT EXISTS last_name TEXT;
+    ALTER TABLE email_signups ADD COLUMN IF NOT EXISTS phone TEXT;
+    ALTER TABLE investor_inquiries ADD COLUMN IF NOT EXISTS phone TEXT;
+  `);
+
   console.log("Database tables ready.");
 }
 
