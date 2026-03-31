@@ -42,7 +42,7 @@ const Investors = () => {
       {/* Nav */}
       <nav className="sticky top-0 z-[100] flex items-center justify-between px-[52px] py-[18px] bg-primary border-b border-white/10 max-md:px-5 max-md:py-[14px]">
         <button onClick={() => navigate("/")} className="flex items-center gap-3 cursor-pointer bg-transparent border-none p-0">
-          <img src={gereomLogo} alt="GereOM" className="h-20 w-auto" />
+          <img src={gereomLogo} alt="GereOM" className="h-28 w-auto" />
         </button>
         <div className="flex items-center gap-3">
           <button

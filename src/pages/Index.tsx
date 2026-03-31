@@ -23,7 +23,7 @@ const Index = () => {
       <nav className="sticky top-0 z-[100] bg-primary border-b border-white/10">
         <div className="flex items-center justify-between px-[52px] py-[18px] max-md:px-5 max-md:py-[14px]">
           <div className="flex items-center gap-3">
-            <img src={gereomLogo} alt="GereOM" className="h-20 w-auto" />
+            <img src={gereomLogo} alt="GereOM" className="h-28 w-auto" />
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -229,7 +229,7 @@ const Index = () => {
         <div className="text-center mb-14">
           <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-3">What's inside</div>
           <h2 className="font-[var(--f-display)] text-[clamp(28px,3.5vw,44px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-4">
-            The Masterclass of Conscious Aging
+            The Master Class of Conscious Aging
           </h2>
           <p className="font-[var(--f-display)] text-[18px] leading-[1.75] text-muted-foreground max-w-[560px] mx-auto">
             Practical tools for real decisions to shape your aging experience.

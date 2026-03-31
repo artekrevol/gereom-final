@@ -40,7 +40,7 @@ export default function Signup() {
       {/* Nav */}
       <nav className="bg-primary border-b border-white/10 px-[52px] py-[18px] flex items-center max-md:px-5 max-md:py-[14px]">
         <button onClick={() => navigate("/")} className="bg-transparent border-none p-0 cursor-pointer">
-          <img src={gereomLogo} alt="GereOM" className="h-20 w-auto" />
+          <img src={gereomLogo} alt="GereOM" className="h-28 w-auto" />
         </button>
       </nav>
 
