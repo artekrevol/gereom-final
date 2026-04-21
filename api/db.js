@@ -22,6 +22,7 @@ async function migrate() {
       name TEXT NOT NULL,
       email TEXT NOT NULL,
       phone TEXT,
+      linkedin TEXT,
       role TEXT,
       created_at TIMESTAMPTZ DEFAULT NOW()
     );
@@ -33,6 +34,7 @@ async function migrate() {
     ALTER TABLE email_signups ADD COLUMN IF NOT EXISTS last_name TEXT;
     ALTER TABLE email_signups ADD COLUMN IF NOT EXISTS phone TEXT;
     ALTER TABLE investor_inquiries ADD COLUMN IF NOT EXISTS phone TEXT;
+    ALTER TABLE investor_inquiries ADD COLUMN IF NOT EXISTS linkedin TEXT;
   `);
 
   console.log("Database tables ready.");

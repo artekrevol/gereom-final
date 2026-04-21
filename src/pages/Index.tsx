@@ -87,8 +87,8 @@ const Index = () => {
         </div>
 
         <h1 className="animate-up-1 font-[var(--f-display)] text-[clamp(42px,6.5vw,76px)] font-medium leading-[1.06] tracking-[-0.8px] text-primary mb-6">
-          Aging care that feels<br />
-          <span className="text-accent italic">human</span> again.
+          Redefining access to<br />
+          <span className="text-accent italic">aging care.</span>
         </h1>
 
         <p className="animate-up-2 font-[var(--f-display)] text-[clamp(18px,2.2vw,22px)] leading-[1.7] font-normal text-muted-foreground max-w-[640px] mx-auto mb-10">
@@ -279,7 +279,6 @@ const Index = () => {
                   {product.icon}
                 </svg>
               </div>
-              <div className="font-[var(--f-ui)] text-[12px] font-semibold uppercase tracking-[1px] text-[hsl(var(--faint))] mb-2">{product.count}</div>
               <h3 className="font-[var(--f-ui)] text-[18px] font-semibold text-primary mb-2 leading-snug">{product.title}</h3>
               <p className="font-[var(--f-ui)] text-[14px] text-muted-foreground leading-[1.65] mb-5">{product.desc}</p>
               <ul className="mt-auto flex flex-col gap-2">
@@ -431,7 +430,7 @@ const Index = () => {
       <section className="relative z-[1] max-w-[720px] mx-auto px-8 pb-28 text-center max-md:px-5 max-md:pb-20">
         <div className="bg-card border border-border rounded-[24px] p-12 px-10 shadow-[var(--sh-md)] max-md:p-8 max-md:px-6">
           <h2 className="font-[var(--f-display)] text-[clamp(26px,3.5vw,40px)] font-medium tracking-[-0.3px] leading-[1.12] text-primary mb-4">
-            Be first to explore GereOM
+            Be a part of the change
           </h2>
           <p className="font-[var(--f-display)] text-[17px] font-normal text-muted-foreground leading-[1.75] mb-8 max-w-[460px] mx-auto">
             Join the waitlist for early access to the first release of tools, guides, and learning resources.
@@ -472,6 +471,18 @@ const Index = () => {
             >
               Investors
             </button>
+            <button
+              onClick={() => navigate("/investors")}
+              className="bg-transparent border-none font-[var(--f-ui)] text-[13px] text-[hsl(var(--faint))] cursor-pointer hover:text-foreground transition-colors p-0"
+            >
+              Partners
+            </button>
+            <a
+              href="mailto:hello@gereom.com"
+              className="font-[var(--f-ui)] text-[13px] text-[hsl(var(--faint))] hover:text-foreground transition-colors no-underline"
+            >
+              Contact Us
+            </a>
           </nav>
           <div className="font-[var(--f-ui)] text-[13px] text-[hsl(var(--faint))]">
             © {new Date().getFullYear()} GereOM

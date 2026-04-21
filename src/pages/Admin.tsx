@@ -17,6 +17,7 @@ type InvestorInquiry = {
   name: string;
   email: string;
   phone: string;
+  linkedin: string;
   role: string;
   created_at: string;
 };
@@ -240,6 +241,7 @@ export default function Admin() {
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Name</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Email</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Phone</th>
+                    <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">LinkedIn</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Role</th>
                     <th className="text-left font-[var(--f-ui)] text-[12px] font-semibold text-muted-foreground px-6 py-3">Date</th>
                   </tr>
@@ -254,6 +256,9 @@ export default function Admin() {
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground font-medium">{row.name}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[14px] text-foreground">{row.email}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.phone || "—"}</td>
+                        <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">
+                          {row.linkedin ? <a href={row.linkedin} target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">View</a> : "—"}
+                        </td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{row.role || "—"}</td>
                         <td className="px-6 py-3 font-[var(--f-ui)] text-[13px] text-muted-foreground">{formatDate(row.created_at)}</td>
                       </tr>

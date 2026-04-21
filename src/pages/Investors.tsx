@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_API_URL || "";
 
 const Investors = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", role: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", linkedin: "", role: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -25,16 +25,10 @@ const Investors = () => {
         body: JSON.stringify(form),
       });
     } catch {
-      // Non-blocking — still allow download even if API is unreachable
+      // Non-blocking
     }
     setLoading(false);
     setSubmitted(true);
-    const link = document.createElement("a");
-    link.href = "/GereOM-Investor-Deck.pdf";
-    link.download = "GereOM-Investor-Deck.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   return (
@@ -262,10 +256,10 @@ const Investors = () => {
             <>
               <div className="font-[var(--f-ui)] text-[13px] font-medium tracking-[0.3px] text-secondary mb-4">Investor Deck</div>
               <h2 className="font-[var(--f-display)] text-[clamp(22px,3vw,32px)] font-medium tracking-[-0.3px] leading-[1.15] text-primary mb-3">
-                Request the full deck
+                Connect with us
               </h2>
               <p className="font-[var(--f-display)] text-[16px] text-muted-foreground leading-[1.7] mb-8 max-w-[420px] mx-auto">
-                Financials, unit economics, full projections, and the detailed data room overview — in one document.
+                Share your details and we'll reach out to schedule a conversation and share the full deck.
               </p>
               <form onSubmit={handleSubmit} className="flex flex-col gap-3 text-left">
                 <input
@@ -290,6 +284,13 @@ const Investors = () => {
                   className="w-full border border-border rounded-[10px] bg-[hsl(var(--stone))] px-4 py-[14px] font-[var(--f-ui)] text-[15px] text-foreground placeholder:text-[hsl(var(--faint))] outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 <input
+                  type="url"
+                  placeholder="LinkedIn profile URL"
+                  value={form.linkedin}
+                  onChange={(e) => setForm({ ...form, linkedin: e.target.value })}
+                  className="w-full border border-border rounded-[10px] bg-[hsl(var(--stone))] px-4 py-[14px] font-[var(--f-ui)] text-[15px] text-foreground placeholder:text-[hsl(var(--faint))] outline-none focus:ring-2 focus:ring-primary/20"
+                />
+                <input
                   type="text"
                   placeholder="Role / firm (optional)"
                   value={form.role}
@@ -308,9 +309,9 @@ const Investors = () => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                       </svg>
-                      Preparing download…
+                      Submitting…
                     </>
-                  ) : "Download investor deck →"}
+                  ) : "Request a conversation →"}
                 </button>
               </form>
               <p className="mt-4 font-[var(--f-ui)] text-[12px] text-[hsl(var(--faint))]">
@@ -324,17 +325,13 @@ const Investors = () => {
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
               </div>
-              <h2 className="font-[var(--f-display)] text-[26px] font-medium text-primary mb-3">Your download has started.</h2>
+              <h2 className="font-[var(--f-display)] text-[26px] font-medium text-primary mb-3">Thank you, {form.name.split(" ")[0]}.</h2>
               <p className="font-[var(--f-display)] text-[16px] text-muted-foreground leading-[1.7] mb-6">
-                Thank you, {form.name.split(" ")[0]}. The GereOM investor deck should be in your downloads folder.
+                We've received your details and will be in touch shortly to schedule a conversation.
               </p>
-              <a
-                href="/GereOM-Investor-Deck.pdf"
-                download="GereOM-Investor-Deck.pdf"
-                className="inline-block bg-primary text-primary-foreground rounded-[10px] px-6 py-[13px] font-[var(--f-ui)] text-[14px] font-semibold transition-all hover:opacity-90"
-              >
-                Download again
-              </a>
+              <p className="font-[var(--f-ui)] text-[14px] text-muted-foreground">
+                In the meantime, if you'd like to book time directly, a scheduling link will be available here soon.
+              </p>
             </>
           )}
         </div>

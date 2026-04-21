@@ -54,7 +54,7 @@ app.post("/api/subscribe", async (req, res) => {
 
 // POST /api/investor-inquiry — investor page form
 app.post("/api/investor-inquiry", async (req, res) => {
-  const { name, email, phone, role } = req.body;
+  const { name, email, phone, linkedin, role } = req.body;
 
   if (!name || !email || !email.includes("@")) {
     return res.status(400).json({ error: "Name and valid email required." });
@@ -62,8 +62,8 @@ app.post("/api/investor-inquiry", async (req, res) => {
 
   try {
     await pool.query(
-      "INSERT INTO investor_inquiries (name, email, phone, role) VALUES ($1, $2, $3, $4)",
-      [name.trim(), email.toLowerCase().trim(), phone?.trim() || null, role?.trim() || null]
+      "INSERT INTO investor_inquiries (name, email, phone, linkedin, role) VALUES ($1, $2, $3, $4, $5)",
+      [name.trim(), email.toLowerCase().trim(), phone?.trim() || null, linkedin?.trim() || null, role?.trim() || null]
     );
     res.json({ success: true });
   } catch (err) {

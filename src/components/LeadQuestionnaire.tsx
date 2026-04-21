@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const questions = [
   {
@@ -15,6 +16,7 @@ const questions = [
     id: "age",
     label: "What is your age range?",
     options: [
+      { value: "under-35", label: "Under 35" },
       { value: "35-45", label: "35–45" },
       { value: "46-55", label: "46–55" },
       { value: "56-65", label: "56–65" },
@@ -36,8 +38,8 @@ const questions = [
 ];
 
 const LeadQuestionnaire = () => {
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSelect = (questionId: string, value: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
@@ -48,27 +50,8 @@ const LeadQuestionnaire = () => {
 
   const handleSubmit = () => {
     if (!allAnswered) return;
-    console.log("Lead capture answers:", answers);
-    setSubmitted(true);
+    navigate("/signup");
   };
-
-  if (submitted) {
-    return (
-      <section className="relative z-[1] max-w-[720px] mx-auto px-8 pb-16 max-md:px-5">
-        <div className="bg-card border border-border rounded-[24px] p-10 text-center shadow-[var(--sh-md)] animate-up">
-          <div className="w-14 h-14 rounded-full bg-secondary/[0.12] text-secondary flex items-center justify-center mx-auto mb-4">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-          </div>
-          <h3 className="font-[var(--f-display)] text-2xl font-medium text-primary mb-2">Thank you!</h3>
-          <p className="font-[var(--f-ui)] text-sm text-muted-foreground leading-relaxed max-w-[400px] mx-auto">
-            We'll use your answers to personalize your experience and send you what matters most.
-          </p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="questionnaire" className="relative z-[1] max-w-[720px] mx-auto px-8 pb-16 max-md:px-5 scroll-mt-24">
